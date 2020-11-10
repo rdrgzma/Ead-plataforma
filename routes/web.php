@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/','CourseController@index');
+Route::view('/dashboard', 'dashboard.index');
 
 Route::resource('lecture', 'LectureController')->only('index', 'store');
 

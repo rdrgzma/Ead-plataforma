@@ -2,6 +2,8 @@
     @extends('layouts.app')
 
     @section('content')
+        <div class="container">
+            <div class="row ">
         <div class="col-12 col-sm-6 col-lg-4 m-15 p-5">
             <div class="card shadow">
                 <img src="https://plchldr.co/i/100x75" alt="plchldr.co" class="card-img-top rounded-top">
@@ -101,6 +103,8 @@
                         <a href="{{url('/lesson')}}" class="btn btn-outline-dark">Ver</a>
                     </div>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
 

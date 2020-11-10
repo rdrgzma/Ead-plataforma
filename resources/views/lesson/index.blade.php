@@ -2,6 +2,8 @@
     @extends('layouts.app')
 
     @section('content')
+        <div class="container">
+            <div class="row ">
         <ul class="list-unstyled mt-5">
             <li class="media mt-5">
                 <img src="https://plchldr.co/i/85x85" class="m-5" alt="...">
@@ -46,5 +48,7 @@
                 </div>
             </li>
         </ul>
+            </div>
+        </div>
     @endsection
 
