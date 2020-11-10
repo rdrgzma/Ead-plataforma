@@ -1,0 +1,29 @@
+created:
+    - app/Http/Controllers/LectureController.php
+    - app/Http/Controllers/LessonController.php
+    - app/Http/Controllers/CourseController.php
+    - database/factories/LectureFactory.php
+    - database/factories/LessonFactory.php
+    - database/factories/CourseFactory.php
+    - database/migrations/2020_11_10_013548_create_lectures_table.php
+    - database/migrations/2020_11_10_013549_create_lessons_table.php
+    - database/migrations/2020_11_10_013550_create_courses_table.php
+    - app/Lecture.php
+    - app/Lesson.php
+    - app/Course.php
+    - tests/Feature/Http/Controllers/LectureControllerTest.php
+    - tests/Feature/Http/Controllers/LessonControllerTest.php
+    - tests/Feature/Http/Controllers/CourseControllerTest.php
+    - app/Http/Requests/LectureStoreRequest.php
+    - app/Http/Requests/LessonStoreRequest.php
+    - app/Http/Requests/CourseStoreRequest.php
+    - resources/views/lecture/index.blade.php
+    - resources/views/lesson/index.blade.php
+    - resources/views/course/index.blade.php
+updated:
+    - routes/web.php
+models:
+    Class: { title: string, description: string, video: string, status: 'enum:pending,successful', image: string, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: Lesson } }
+    Lesson: { title: string, description: 'string nullable', video: 'string nullable', image: 'string nullable', softdeletes: softDeletes, timestamps: timestamps, status: 'enum:pending,successful', relationships: { belongsTo: Course, hasMany: Lecture } }
+    Course: { title: string, description: 'string nullable', video: 'string nullable', image: 'string nullable', status: 'enum:pending,successful', softdeletes: softDeletes, timestamps: timestamps, relationships: { hasMany: 'Lesson, Lecture' } }
+    Lecture: { title: string, description: string, video: string, status: 'enum:pending,successful', image: string, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: Lesson } }

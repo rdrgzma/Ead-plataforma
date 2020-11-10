@@ -1,0 +1,67 @@
+models:
+  Lecture:
+    title: string
+    description: string
+    video: string
+    status: enum:pending,successful
+    image: string
+    softDeletes
+    timestamps
+    relationships:
+      belongsTo: Lesson
+
+  Lesson:
+    title: string
+    description: string nullable
+    video: string nullable
+    image: string nullable
+    softDeletes
+    timestamps
+    status: enum:pending,successful
+    relationships:
+      belongsTo: Course
+      hasMany: Lecture
+
+  Course:
+    title: string
+    description: string nullable
+    video: string nullable
+    image: string nullable
+    status: enum:pending,successful
+    softDeletes
+    timestamps
+    relationships:
+      hasMany: Lesson, Lecture
+
+
+controllers:
+  Lecture:
+    index:
+      query: all
+      render: lecture.index with:classes
+    store:
+      validate: title, description
+      save: lecture
+      flash: lecture.title
+      redirect: lecture.index
+
+  Lesson:
+    index:
+      query: all
+      render: lesson.index with:lessons
+    store:
+      validate: title, description
+      save: lesson
+      flash: lesson.title
+      redirect: lesson.index
+
+  Course:
+    index:
+      query: all
+      render: course.index with:courses
+    store:
+      validate: title, description
+      save: course
+      flash: course.title
+      redirect: course.index
+
